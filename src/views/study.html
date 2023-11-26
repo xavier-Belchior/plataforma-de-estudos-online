@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partials/page-study.css">
+    <link rel="stylesheet" href="css/partials/header.css">
+    <link rel="stylesheet" href="css/partials/forms.css">
+    <title>Document</title>
+
+</head>
+<body id="page-study">
+
+
+<div id="container">
+    <header class="page-header">
+        <div class="top-bar-head">
+            <a href="/">
+                <img src="/image/icon/back.svg" alt="Voltar">
+            </a>
+            <img src="/image/icon/logo.svg" alt="Proffy">
+        </div>
+
+        <div class="header-content">
+            <strong>Esse são os proffy disponível</strong>
+            <form id="search-teacher">
+                <div class="select-block">
+                    <label for="subject">Matérias</label>
+                    <select name="subject" id="subject">
+                        <!--For do nunjucks-->
+                        <option value="">Selecionar uma opção</option>
+                        {%for subject in subjects %}
+                            <option value="{{loop.index}}" {{"selected" if filter.subject == loop.index }}>
+                                {{subject}}
+                            </option>
+                        {%endfor%}
+                    
+                    </select>
+                </div>
+
+                <div class="select-block">
+                    <label for="weekday">Semanas</label>
+                    <select name="weekday" id="weekday">
+                        <option value=""  >Selecionar uma opção</option>
+                        {%for weekday in weekdays %}
+                        <option value="{{loop.index0}}" {{"selected" if filter.weekday == loop.index0 }} >
+                            {{weekday}}
+                        </option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="input-block">
+                    <label for="time">Hora</label>
+                    <input name="time" id="time " type="time" value="{{filter.time}}" >
+                </div> 
+
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <!--For do nunjucks-->
+        {% if proffys == "" %}
+            <p class="no-result">Nenhum professor encontrado com a sua pesquisa </p>
+        {% else %}
+
+        {%for proffy in proffys %} 
+            <article class="teacher-item">
+                <header>
+                    <img 
+                     src="{{proffy.avatar}}"
+                     alt="{{proffy.name}}">
+
+                    <div>
+                        <strong>
+                        {{proffy.name}}
+
+                        </strong>
+                        <span>{{proffy.subject}}</span>
+                    </div>
+                </header>
+
+                <p>{{proffy.bio}}</p>
+
+                <footer>
+                <p>
+                    preço/hora <strong>R${{proffy.cost}}</strong>
+                </p>
+                <a href="https://web.whatsapp.com/send?1=pt_AO&phone=+244{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}"
+                
+                    class="button" target="_blank">
+                    <img src="/image/icon/whatsapp.svg" alt="whatsapp">Entrar em contato
+                </a>
+                </footer>
+            </article>
+        {%endfor%}
+
+      {% endif %}
+  
+
+
+    </main>
+
+  </div>
+
+
+</body>
+</html>

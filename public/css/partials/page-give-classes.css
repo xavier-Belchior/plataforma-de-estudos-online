@@ -1,0 +1,163 @@
+
+#page-give-classes #container{
+    width: 100vw;
+    height: 100vh;
+  
+}
+
+:root{
+    font-size:50% ;
+}
+#page-give-classes main{
+    background-color: var(--color-box-base);
+    width: 100%;
+    max-width: 700px;
+    border-radius: .8rem;
+    margin: -3.2rem auto 3.2rem;
+    padding-top: 6.4rem;
+
+}
+#page-give-classes main fieldset{
+    border: none;
+    padding: 0 2.4rem;
+}
+#page-give-classes main fieldset legend{
+    font: 700 2.4rem archivo;
+    color: var(--color-text-title);
+    margin-bottom: 2.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--color-line-in-white);
+}
+
+#page-give-classes .page-header .header-content{
+    margin-top: 6.4rem;
+}
+
+#page-give-classes  fieldset legend button{
+    background:none;
+    border: none;
+
+    color:  var(--color-primary);
+
+    transition: 0.2;
+
+    cursor: pointer;
+
+    font: 700 1.6rem Archivo;
+}
+
+#page-give-classes  fieldset legend button:hover{
+    transform: translateY(-5px);
+    color: var(--color-primary-dark);
+}
+
+#page-give-classes  main footer{
+    padding: 4rem 2.4rem;
+
+    background:var(--color-box-base);
+    border: 1px solid var(--color-line-in-white);
+
+    margin-top: 6.4rem;
+}
+#page-give-classes  main footer p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+
+    color: var(--color-text-complement);
+
+}
+
+#page-give-classes  main footer p img{
+    margin-right: 2rem;
+}
+
+#page-give-classes  main footer  button{
+    width: 100%;
+    height: 5.4rem;
+
+    border: 0;
+    border-radius: .8rem;
+    background:var(--color-secondary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-button-text);
+    transition: 0.2s;
+
+    cursor: pointer;
+    margin-top: 3.2rem;
+}
+
+#page-give-classes  main footer  button:hover{
+    background: var(--color-secondary-dark);
+}
+
+.shedule-time+.shedule-time{
+    margin-top: 3.4rem;
+    padding-top:3.4rem ;
+
+    border: 1px solid var(--color-line-in-white);
+}
+
+#page-give-classes fieldset+fieldset{
+    margin-top: 6.4rem;
+}
+
+#page-give-classes .input-block+.input-block,
+#page-give-classes .input-block+.textarea-block,
+#page-give-classes .select-block+.input-block{
+    margin-top:2.4rem;
+}
+
+
+@media (min-width:700px) {
+    #page-give-classes #container{
+        max-width: 100vw;      
+    
+    }
+    #page-give-classes .page-header .header-content{
+        margin-bottom: 0;
+    }
+
+    #page-give-classes main fieldset{
+        padding: 0 64px;
+    }
+    .shedule-time{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        column-gap: 1.6rem;
+    }
+
+    #page-give-classes #shedule-times .select-block+.input-block,
+    #page-give-classes #shedule-times .input-block+.input-block{
+        margin-top: 0;
+    }
+
+    #page-give-classes main footer{
+        padding: 40px 64px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #page-give-classes main footer button{
+        width: 200px;
+        margin-top: 0;
+
+
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partials/page-give-classes.css">
+    <link rel="stylesheet" href="css/partials/header.css">
+    <link rel="stylesheet" href="css/partials/forms.css">
+    <title>Document</title>
+
+</head>
+<body id="page-give-classes">
+
+
+<div id="container">
+    <header class="page-header">
+        <div class="top-bar-head">
+            <a href="/">
+                <img src="/image/icon/back.svg" alt="Voltar">
+            </a>
+            <img src="/image/icon/logo.svg" alt="Proffy">
+        </div>
+
+        <div class="header-content">
+            <strong>Que incrivel que voçe quer dar aulas</strong>
+            <p>O primeiro passo é priencher este formularío de inscrição</p>
+
+        </div>
+    </header>
+
+    <main>
+
+        <form action="/save-classes" id="create-classe" method="POST">
+
+            <fieldset>
+                <legend>Seus dados</legend>
+                <div class="input-block">
+                    <label for="name" >Nome completo</label>
+                    <input name="name" id="name" required>
+                </div>
+
+                <div class="input-block">
+                    <label for="avatar" >Link da sua foto <small>(comece com https://)</small></label>
+                    <input  name="avatar" id="avatar" type="url"  required>
+                </div>
+
+                <div class="input-block">
+                    <label for="whatsapp" >whatsapp <small>(somente numeros)</small></label>
+                    <input name="whatsapp" id="whatsapp" type="number" required>
+                </div>
+
+                <div class="textarea-block">
+                    <label for="bio" >Biografia</label>
+                    <textarea name="bio" id="bio" required></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sobre a aula</legend>
+                <div class="select-block">
+                    <label for="subject" id="subject">Materias</label>
+                    <select name="subject" id="subject" required>
+                        <option value="">Selecione uma opção</option>
+                        {%for subject in subjects%}
+
+                        <option value="{{loop.index}}">
+                            {{subject}}
+                        </option>
+
+                        {%endfor%}
+                       
+                    </select>
+                </div>
+
+                <div class="input-block">
+                    <label for="cost">Custo da sua hora/aula
+                        <small>(R$)</small>
+                    </label>
+                        <input  name="cost" id="cost" type="number" required >
+                    
+                </div>
+            </fieldset>
+
+            <fieldset id="shedule-times">
+                <legend>
+                    Horários disponiveis
+                    <button type="button" id="add-time">+Novs horários</button>
+                </legend>
+                <div class="shedule-time">
+                    <div class="select-block">
+                        <label for="weekday">Dias de semana</label>    
+                        <select name="weekday[]" required>
+                            <option value=""  >Selecionar uma opção</option>
+                            {%for weekday in weekdays %}
+                            <option value="{{loop.index0}}" >
+                                {{weekday}}
+                            </option>
+                            {%endfor%}
+                        </select>           
+                        
+                    </div>
+
+                    <div class="input-block">
+                        <label for="time_from">Das</label>
+                        <input type="time" name="time_from[]" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="time_to">Até</label>
+                        <input type="time" name="time_to[]" required>
+                    </div>
+                </div>
+            
+                
+            </fieldset>
+        </form>
+            <footer>
+                <p>
+                    <img src="image/icon/warning.svg" alt="Aviso importante " srcset="">
+                    Importante! <br>
+                    Preenchera os espaços vazios
+                </p>
+
+                <button type="submit" form="create-classe">Salva cadastro </button>
+            </footer>
+
+       
+       
+    </main>
+
+  </div>
+
+  <script src="/scripts/addfiel.js"></script>
+</body>
+</html>
